@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAGAS DE EMPREGO!</title>
+<link rel="shortcut icon"
+	href="https://vaps41.github.io/Site_de_vaga_de_emprego/favicon.ico"
+	type="image/x-icon">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://vaps41.github.io/Site_de_vaga_de_emprego/css/Style.css">
+
+</head>
+
+<body>
+	<header id="header">
+		<div id="bodyheader">
+			<h2 class="text-muted">Sistema de controle de vagas de emprego</h2>
+			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+				<li class="nav-item" role="presentation"><a href="/"><button
+							class="nav-link" id="pills-home-tab" data-bs-toggle="pill"
+							data-bs-target="#pills-home" type="button" role="tab"
+							aria-controls="pills-home" aria-selected="true">Home</button></a></li>
+				<li class="nav-item" role="presentation"><a
+					href="/lista/lista/listar_Vagas"><button
+							class="nav-link active" id="pills-profile-tab"
+							data-bs-toggle="pill" data-bs-target="#pills-profile"
+							type="button" role="tab" aria-controls="pills-profile"
+							aria-selected="false">Vagas de emprego</button></a></li>
+				<li class="nav-item" role="presentation"><a
+					href="/cad/cadastrarVaga"><button class="nav-link"
+							id="pills-profile-tab" data-bs-toggle="pill"
+							data-bs-target="#pills-profile" type="button" role="tab"
+							aria-controls="pills-profile" aria-selected="false">Cadastrar
+							vaga</button></a></li>
+			</ul>
+		</div>
+	</header>
+	<section id="bodysection">
+		<div id="section">
+			<h2>Vagas Disponíveis:</h2>
+			<button type="button" class="btn btn-success">
+				<a href="/cad/cadastrarVaga">+ Nova Vaga</a>
+			</button>
+		</div>
+		<div id="list">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th scope="col">Código</th>
+						<th scope="col">Vaga</th>
+						<th scope="col">Salário</th>
+						<th scope="col">Cidade</th>
+						<th scope="col">Setor</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Contrato</th>
+						<th scope="col">Requisitos Obrigatório</th>
+						<th scope="col">Requisitos Desejáveis</th>
+						<th scope="col">Descrição</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="vaga: ${vagas}">
+						
+						<th scope="row"><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0,vaga.codigo)).build()}"><span th:text="${vaga.codigo}"></a></th>
+						<td><span th:text="${vaga.nome}"></span></td>
+						<td>R$ <span th:text="${vaga.salario}"></span></td>
+						<td><span th:text="${vaga.cidade}"></span></td>
+						<td><span th:text="${vaga.setor}"></span></td>
+						<td><span th:text="${vaga.cargo}"></span></td>
+						<td><span th:text="${vaga.contrato}"></span></td>
+						<td><details>
+								<summary>
+									<b>Saiba mais...</b>
+								</summary>
+								<p>
+									<span th:text="${vaga.requisitos_obg}"></span>
+								</p>
+							</details></td>
+						<td><details>
+								<summary>
+									<b>Saiba mais...</b>
+								</summary>
+								<p>
+									<span th:text="${vaga.requisitos_desj}"></span>
+								</p>
+							</details></td>
+						<td><details>
+								<summary>
+									<b>Saiba mais...</b>
+								</summary>
+								<p>
+									<span th:text="${vaga.descricao}"></span>
+								</p>
+							</details></td>
+
+						<td><a
+							th:href="${(#mvc.url('VC#deletarVaga').arg(0, vaga.codigo)).build()}"><button
+									type="button" class="btn btn-outline-danger">Excluir</button></a> </br>
+							<a
+							th:href="${(#mvc.url('VC#editarVaga').arg(0, vaga.codigo)).build()}"><button
+									type="button" class="btn btn-outline-warning">Editar</button></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>
