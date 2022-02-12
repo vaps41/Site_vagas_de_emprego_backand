@@ -104,8 +104,7 @@
 						<td><a
 							th:href="${(#mvc.url('VC#deletarVaga').arg(0, vaga.codigo)).build()}"><button
 									type="button" class="btn btn-outline-danger">Excluir</button></a> </br>
-							<a
-							th:href="${(#mvc.url('VC#editarVaga').arg(0, vaga.codigo)).build()}"><button
+							<a th:href="${(#mvc.url('VC#editarVaga').arg(0, vaga.codigo)).build()}"><button
 									type="button" class="btn btn-outline-warning">Editar</button></a></td>
 					</tr>
 				</tbody>

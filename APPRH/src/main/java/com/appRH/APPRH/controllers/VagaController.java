@@ -82,7 +82,7 @@ public class VagaController {
 	@RequestMapping(value="edit/editarVaga", method = RequestMethod.GET)
 	public ModelAndView editarVaga(long codigo) {
 		vaga vaga=vr.findByCodigo(codigo);
-		ModelAndView mv = new ModelAndView("vaga/update_vaga");
+		ModelAndView mv = new ModelAndView("vaga/pages/update_vaga");
 		mv.addObject("vaga",vaga);
 		return mv;
 		
