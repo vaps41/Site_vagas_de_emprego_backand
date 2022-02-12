@@ -29,7 +29,7 @@
 							data-bs-target="#pills-home" type="button" role="tab"
 							aria-controls="pills-home" aria-selected="true">Home</button></a></li>
 				<li class="nav-item" role="presentation"><a
-					href="/lista/lista/listar_Vagas"><button
+					href="/lista/listar_Vagas"><button
 							class="nav-link active" id="pills-profile-tab"
 							data-bs-toggle="pill" data-bs-target="#pills-profile"
 							type="button" role="tab" aria-controls="pills-profile"
@@ -69,7 +69,7 @@
 				<tbody>
 					<tr th:each="vaga: ${vagas}">
 						
-						<th scope="row"><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0,vaga.codigo)).build()}"><span th:text="${vaga.codigo}"></a></th>
+						<th scope="row"><a th:href="${(#mvc.url('VC#detalhesVaga').arg(0,vaga.codigo)).build()}" id="codi_vaga"><span th:text="${vaga.codigo}"></a></th>
 						<td><span th:text="${vaga.nome}"></span></td>
 						<td>R$ <span th:text="${vaga.salario}"></span></td>
 						<td><span th:text="${vaga.cidade}"></span></td>
