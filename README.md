@@ -1,5 +1,4 @@
-# Vagas de emprego com backand
-# Site de vaga de emprego
+# Site vagas de emprego com backand
 
 # 🚀 Tecnologias
 
@@ -7,14 +6,16 @@
 
 * ✔️ Css
 
-* ✔️ Javascript
+* ✔️ Java
+
+* ✔️ Springboot
 
 # 💻 Projeto
 
-* Projeto sem backend.
+* Projeto com backend.
 * Este projeto está finalizado.
 
 # <img src="https://vaps41.github.io/Site_de_vaga_de_emprego/midia/backend.png" width="40" height="40"> Backand
 
-* O Backand está em outro repositório;
-* Repositório: https://github.com/vaps41/vagas_de_emprego_backand
+* Este repositório é a continuação do projeto Site vagas de emprego;
+* Repositório: https://github.com/vaps41/Site_de_vaga_de_emprego
