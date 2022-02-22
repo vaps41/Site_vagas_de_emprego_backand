@@ -6,6 +6,8 @@
 
 * ✔️ Css
 
+* ✔️ Bootstrap
+
 * ✔️ Java
 
 * ✔️ Springboot
