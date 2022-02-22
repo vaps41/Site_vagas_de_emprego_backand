@@ -3,6 +3,8 @@ package com.appRH.APPRH.models;
 
 public class VagaDTO {
 	
+	private String codigo;
+	
 	private String nome;
 
 	private String salario;
@@ -94,10 +96,24 @@ public class VagaDTO {
 		this.descricao = descricao;
 	}
 	
+	
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
 	public vaga converter() {
 		vaga vaga = new vaga();
-		
+		//verifica se o codigo não é nulo
+		if(this.getCodigo() != null) {
+			vaga.setCodigo(Integer.parseInt(this.getCodigo()));
+		}
 		vaga.setNome(this.getNome());
+		//transforma string em float
 		vaga.setSalario(Float.parseFloat(this.getSalario()));
 		vaga.setCidade(this.getCidade());
 		vaga.setSetor(Integer.parseInt(this.getSetor()));

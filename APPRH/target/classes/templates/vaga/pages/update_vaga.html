@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang=”pt-br” xmlns:th="http://www.thymeleaf.org"
+<html lang=”pt-br” xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cadastrar vaga</title>
+<title>EDITAR VAGA!</title>
 <link rel="shortcut icon"
 	href="https://vaps41.github.io/Site_de_vaga_de_emprego/favicon.ico"
 	type="image/x-icon">
+	<link rel="stylesheet" href="https://vaps41.github.io/Site_de_vaga_de_emprego/css/Style.css">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://vaps41.github.io/Site_de_vaga_de_emprego/css/Style.css">
+
+
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 			<h2 class="text-muted">Sistema de controle de vagas de emprego</h2>
 			<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 				<li class="nav-item" role="presentation"><a href="/"><button
-							class="nav-link" id="pills-home-tab" data-bs-toggle="pill"
+							class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
 							data-bs-target="#pills-home" type="button" role="tab"
 							aria-controls="pills-home" aria-selected="true">Home</button></a></li>
 				<li class="nav-item" role="presentation"><a
@@ -34,141 +35,140 @@
 							aria-controls="pills-profile" aria-selected="false">Vagas
 							de emprego</button></a></li>
 				<li class="nav-item" role="presentation"><a
-					href="/cad/cadastrarVaga"><button class="nav-link active"
+					href="/cad/cadastrarVaga"><button class="nav-link"
 							id="pills-profile-tab" data-bs-toggle="pill"
 							data-bs-target="#pills-profile" type="button" role="tab"
-							aria-controls="pills-profile" aria-selected="false">Edição
-							da Vaga</button></a></li>
+							aria-controls="pills-profile" aria-selected="false">Cadastrar
+							vaga</button></a></li>
 			</ul>
 		</div>
 	</header>
-	</div>
-	<section id="bodysection">
-		<div id="formulario">
-			<div id="section">
-				<h2>Editar Vaga:</h2>
-				<button type="button" class="btn btn-success">
-					<a href="/cad/cadastrarVaga">+ Nova Vaga</a>
-				</button>
-			</div>
-			</br>
-			<form action="/cad/cadastrarVag" method="post">
-				<!--  <th:block th:include="mensagemValidacao"></th:block>-->
-				<div class="form-floating mb-3">
-					<input required th:attr="value = ${vaga.nome}" type="text"
-						class="form-control" id="floatingInput"
-						placeholder="Desenvolvedor Back-end" name="nome"> <label
-						for="floatingInput">Nome da Vaga</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input required th:attr="value = ${vaga.salario}" value=""
-						type="number" class="form-control" id="floatingPassword"
-						placeholder="5000.00" step="0.01" min="0.01" name="salario">
-					<label for="floatingPassword">Salário</label>
-				</div>
-				<div class="form-floating mb-3">
-					<input required th:attr="value = ${vaga.cidade}" type="text"
-						class="form-control" id="floatingInput" placeholder="Mauá"
-						name="cidade"> <label for="floatingInput">Cidade</label>
-				</div>
-				<div class="form-floating mb-3">
-					<select class="form-select" id="floatingSelect"
-						aria-label="Floating label select example"
-						th:attr="value = ${vaga.setor}" name="setor" required>
-						<option value="">Selecione</option>
-						<option value="1">Agricultura, Pecuária e Veterinária</option>
-						<option value="2">Alimentação</option>
-						<option value="3">Bens de Consumo</option>
-						<option value="4">Comunicação e Entretenimento</option>
-						<option value="6">Construção e Habitação</option>
-						<option value="5">Consultoria e Auditoria</option>
-						<option value="7">Criatividade e Design</option>
-						<option value="8">Diversão, Viagens e Turismo</option>
-						<option value="9">Empresas B</option>
-						<option value="10">Estética, Fitness e Bem-estar</option>
-						<option value="11">Finanças</option>
-						<option value="12">Indústria</option>
-						<option value="13">Jurídico</option>
-						<option value="14">Logística</option>
-						<option value="15">Marketing</option>
-						<option value="16">Meio Ambiente e Florestas</option>
-						<option value="24">Produtora</option>
-						<option value="17">Recursos Humanos</option>
-						<option value="18">Saúde</option>
-						<option value="25">Seguros</option>
-						<option value="19">Serviços</option>
-						<option value="20">Sociais e Educação</option>
-						<option value="21">Tech, Geeks &amp; Nerds</option>
-						<option value="23">Terceiro Setor</option>
-						<option value="22">Varejo e Comércio</option>
-					</select> <label for="floatingSelect">Área de atuação:</label>
-				</div>
-				<div class="form-floating mb-3">
-					<select class="form-select" id="floatingSelect"
-						aria-label="Floating label select example"
-						th:attr="value = ${vaga.cargo}" name="cargo" required>
-						<option value="">Selecione</option>
-						<option value="Presidente_CEO_Socio">Presidente / CEO /
-							Sócio</option>
-						<option value="Diretor(a)_VP">Diretor(a) / VP</option>
-						<option value="Gerente_Coordenador(a)">Gerente /
-							Coordenador(a)</option>
-						<option value="Business_Partner">Business Partner</option>
-						<option value="Analista">Analista</option>
-						<option value="Producao">Produção</option>
-						<option value="Estagiario(a)">Estagiário(a)</option>
-						<option value="Estudante">Estudante</option>
-						<option value="Outros_Cargos">Outros Cargos</option>
-					</select> <label for="floatingSelect">Cargo:</label>
-				</div>
-				<div class="form-floating mb-3">
-					<select class="form-select" id="floatingSelect"
-						aria-label="Floating label select example"
-						th:attr="value = ${vaga.contrato}" name="contrato" required>
-						<option value="">Selecione</option>
-						<option value="CLT">CLT</option>
-						<option value="PJ">PJ</option>
-						<option value="Temporário">Temporário</option>
-					</select> <label for="floatingSelect">Contrato:</label>
-				</div>
-				<div class="form-floating mb-3">
-					<textarea class="form-control" placeholder="Leave a comment here"
-						id="floatingTextarea2" style="height: 100px"
-						th:text="${vaga.requisitos_obg}" name="requisitos_obg" required></textarea>
-					<label for="floatingTextarea2">Requisitos Obrigatório:</label>
-				</div>
-				<div class="form-floating mb-3">
-					<textarea class="form-control" placeholder="Leave a comment here"
-						id="floatingTextarea2" style="height: 100px"
-						th:text="${vaga.requisitos_desj}" name="requisitos_desj" required></textarea>
-					<label for="floatingTextarea2">Requisitos Desejáveis:</label>
-				</div>
+    </div>
+    <section id="bodysection">
+        <div id="formulario">
+            <div id="section">
+                <h2>Editar Vaga:</h2>
+			<button type="button" class="btn btn-success">
+				<a href="/cad/cadastrarVaga">+ Nova Vaga</a>
+			</button>
+            </div>
+            </br>
+            <form action="editarVaga" method="post">
+            	<input type="hidden" name="codigo" th:attr="value = ${vaga.codigo}" />
+                <!--  <th:block th:include="mensagemValidacao"></th:block>-->
+                <div class="form-floating mb-3">
+                    <input required th:attr="value = ${vaga.nome}" type="text" class="form-control" id="floatingInput"
+                        placeholder="Desenvolvedor Back-end" name="nome"> <label for="floatingInput">Nome da
+                        Vaga</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input required th:attr="value = ${vaga.salario}" value="" type="number" class="form-control"
+                        id="floatingPassword" placeholder="5000.00" step="0.01" min="0.01" name="salario">
+                    <label for="floatingPassword">Salário</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input required th:attr="value = ${vaga.cidade}" type="text" class="form-control" id="floatingInput"
+                        placeholder="Mauá" name="cidade"> <label for="floatingInput">Cidade</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                        th:attr="value = ${vaga.setor}" name="setor" required>
+                        <option  th:selected="${vaga.setor} == '' ? true : false" value="null">Selecione</option>
+                        <option th:selected="${vaga.setor} == 1 ? true : false" value="1">Agricultura,Pecuária e Veterinária</option>
+                        <option th:selected="${vaga.setor} == 2 ? true : false" value="2">Alimentação</option>
+                        <option th:selected="${vaga.setor} == 3 ? true : false" value="3">Bens de Consumo</option>
+                        <option th:selected="${vaga.setor} == 4 ? true : false" value="4">Comunicação eEntretenimento</option>
+                        <option th:selected="${vaga.setor} == 5 ? true : false" value="5">Construção eHabitação</option>
+                        <option th:selected="${vaga.setor} == 6 ? true : false" value="6">Consultoria eAuditoria</option>
+                        <option th:selected="${vaga.setor} == 7 ? true : false" value="7">Criatividade e Design</option>
+                        <option th:selected="${vaga.setor} == 8 ? true : false" value="8">Diversão, Viagens eTurismo</option>
+                        <option th:selected="${vaga.setor} == 9 ? true : false" value="9">Empresas B</option>
+                        <option th:selected="${vaga.setor} == 10 ? true : false" value="10">Estética, Fitnesse Bem-estar</option>
+                        <option th:selected="${vaga.setor} == 11 ? true : false" value="11">Finanças</option>
+                        <option th:selected="${vaga.setor} == 12 ? true : false" value="12">Indústria</option>
+                        <option th:selected="${vaga.setor} == 13 ? true : false" value="13">Jurídico</option>
+                        <option th:selected="${vaga.setor} == 14 ? true : false" value="14">Logística</option>
+                        <option th:selected="${vaga.setor} == 15 ? true : false" value="15">Marketing</option>
+                        <option th:selected="${vaga.setor} == 16 ? true : false" value="16">Meio Ambiente eFlorestas</option>
+                        <option th:selected="${vaga.setor} == 17 ? true : false" value="17">Produtora</option>
+                        <option th:selected="${vaga.setor} == 18 ? true : false" value="18">Recursos Humanos</option>
+                        <option th:selected="${vaga.setor} == 19 ? true : false" value="19">Saúde</option>
+                        <option th:selected="${vaga.setor} == 20 ? true : false" value="20">Seguros</option>
+                        <option th:selected="${vaga.setor} == 21 ? true : false" value="21">Serviços</option>
+                        <option th:selected="${vaga.setor} == 22 ? true : false" value="22">Sociais eEducação</option>
+                        <option th:selected="${vaga.setor} == 23 ? true : false" value="23">Tech, Geeks &amp;Nerds</option>
+                        <option th:selected="${vaga.setor} == 24 ? true : false" value="24">Terceiro Setor</option>
+                        <option th:selected="${vaga.setor} == 25 ? true : false" value="25">Varejo e Comércio</option>
+                    </select> <label for="floatingSelect">Área de atuação:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                        th:attr="value = ${vaga.cargo}" name="cargo" required>
+                        <option th:selected="${vaga.cargo} == '' ? true : false" value="null">Selecione</option>
+                        <option th:selected="${vaga.cargo} == 'Presidente_CEO_Socio' ? true : false" value="Presidente_CEO_Socio">Presidente / CEO /
+                            Sócio</option>
+                        <option th:selected="${vaga.cargo} == 'Diretor(a)_VP' ? true : false" value="Diretor(a)_VP">Diretor(a) / VP</option>
+                        <option th:selected="${vaga.cargo} == 'Gerente_Coordenador(a)' ? true : false" value="Gerente_Coordenador(a)">Gerente /
+                            Coordenador(a)</option>
+                        <option th:selected="${vaga.cargo} == 'Business_Partner' ? true : false"
+                            value="Business_Partner">Business Partner</option>
+                        <option th:selected="${vaga.cargo} == 'Analista' ? true : false" value="Analista">Analista
+                        </option>
+                        <option th:selected="${vaga.cargo} == 'Producao' ? true : false" value="Producao">Produção
+                        </option>
+                        <option th:selected="${vaga.cargo} == 'Estagiario(a)' ? true : false" value="Estagiario(a)">
+                            Estagiário(a)</option>
+                        <option th:selected="${vaga.cargo} == 'Estudante' ? true : false" value="Estudante">Estudante
+                        </option>
+                        <option th:selected="${vaga.cargo} == 'Outros_Cargos' ? true : false" value="Outros_Cargos">
+                            Outros Cargos</option>
+                    </select> <label for="floatingSelect">Cargo:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example"
+                        th:attr="value = ${vaga.contrato}" name="contrato" required>
+                        <option th:selected="${vaga.contrato} == '' ? true : false" value="null">Selecione</option>
+                        <option th:selected="${vaga.contrato} == 'CLT' ? true : false" value="CLT">CLT</option>
+                        <option th:selected="${vaga.contrato} == 'PJ' ? true : false" value="PJ">PJ</option>
+                        <option th:selected="${vaga.contrato} == 'Temporário' ? true : false" value="Temporário">
+                            Temporário</option>
+                    </select> <label for="floatingSelect">Contrato:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px" th:text="${vaga.requisitos_obg}" name="requisitos_obg"
+                        required></textarea>
+                    <label for="floatingTextarea2">Requisitos Obrigatório:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px" th:text="${vaga.requisitos_desj}" name="requisitos_desj"
+                        required></textarea>
+                    <label for="floatingTextarea2">Requisitos Desejáveis:</label>
+                </div>
 
-				<div class="form-floating mb-3">
-					<textarea class="form-control" placeholder="Leave a comment here"
-						id="floatingTextarea2" style="height: 100px"
-						th:text="${vaga.descricao}" name="descricao" required></textarea>
-					<label for="floatingTextarea2">Descrição:</label>
-				</div>
-				<div class="enviar">
-					<button type="submit" class="btn btn-primary">Enviar
-						Atualização</button>
-				</div>
-			</form>
-		</div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        style="height: 100px" th:text="${vaga.descricao}" name="descricao" required></textarea>
+                    <label for="floatingTextarea2">Descrição:</label>
+                </div>
+                <div class="enviar">
+                    <button type="submit" class="btn btn-primary">Enviar
+                        Atualização</button>
+                </div>
+            </form>
+        </div>
 
-	</section>
-	<footer>
-		<iframe src="https://vaps41.github.io/assinatura/" width="100%"
-			height="63rem"
-			style="display: flex; justify-content: flex-end; max-height: 70px"
-			frameborder="0" alt="Rodapé" title="Rodapé"></iframe>
-	</footer>
+    </section>
+    <footer>
+        <iframe src="https://vaps41.github.io/assinatura/" width="100%" height="63rem"
+            style="display: flex; justify-content: flex-end; max-height: 70px" frameborder="0" alt="Rodapé"
+            title="Rodapé"></iframe>
+    </footer>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

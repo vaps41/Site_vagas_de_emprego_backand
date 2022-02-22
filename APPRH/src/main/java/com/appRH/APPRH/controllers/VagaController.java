@@ -33,7 +33,7 @@ public class VagaController {
 		
 	}
 	
-	@RequestMapping(value = "/cad/cadastrarVag", method = RequestMethod.POST)
+	@RequestMapping(value = "/cad/cadastrarVaga", method = RequestMethod.POST)
 	public String form(@Valid VagaDTO vagaDTO, BindingResult result, RedirectAttributes attributes) {
 		
 		vaga vaga = vagaDTO.converter();
@@ -79,7 +79,7 @@ public class VagaController {
 
 
 	//Editar vaga
-	@RequestMapping(value="edit/editarVaga", method = RequestMethod.GET)
+	@RequestMapping(value="/edit/editarVaga", method = RequestMethod.GET)
 	public ModelAndView editarVaga(long codigo) {
 		vaga vaga=vr.findByCodigo(codigo);
 		ModelAndView mv = new ModelAndView("vaga/pages/update_vaga");
@@ -88,14 +88,17 @@ public class VagaController {
 		
 	}
 	//Update vaga
-	@RequestMapping(value="/editarVaga", method = RequestMethod.POST)
-	public String UpdateVaga(@Valid vaga vaga, BindingResult result, RedirectAttributes attributes) {
+	@RequestMapping(value="/edit/editarVaga", method = RequestMethod.POST)
+	public String UpdateVaga(@Valid VagaDTO vagaDTO, BindingResult result, RedirectAttributes attributes) {
+		
+		vaga vaga = vagaDTO.converter();
+		
 		vr.save(vaga);
 		attributes.addFlashAttribute("sucess", "Vaga alterada com sucesso!");
 		
 		long codigoLong=vaga.getCodigo();
 		String codigo=""+ codigoLong;
-		return "redirect/"+codigo;
+		return "redirect:/edit/editarVaga?codigo="+codigo;
 	}
 	
 	

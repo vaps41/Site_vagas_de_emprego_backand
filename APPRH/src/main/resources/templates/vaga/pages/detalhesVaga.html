@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAGAS DE EMPREGO!</title>
+<title th:text="${vaga.nome}"></title>
 <link rel="shortcut icon"
 	href="https://vaps41.github.io/Site_de_vaga_de_emprego/favicon.ico"
 	type="image/x-icon">
@@ -28,7 +28,7 @@
 							data-bs-target="#pills-home" type="button" role="tab"
 							aria-controls="pills-home" aria-selected="true">Home</button></a></li>
 				<li class="nav-item" role="presentation"><a
-					href=/lista/listar_Vagas"><button class="nav-link"
+					href="/lista/listar_Vagas"><button class="nav-link"
 							id="pills-profile-tab" data-bs-toggle="pill"
 							data-bs-target="#pills-profile" type="button" role="tab"
 							aria-controls="pills-profile" aria-selected="false">Vagas
@@ -48,8 +48,7 @@
 		<!--<th:block th:include="mensagemValidacao"></th:block>-->
 		<p>
 		<h4>
-			<span th:text="${vaga.codigo}"></span> - <span
-				th:text="${vaga.codigo}"></span>
+			<span th:text="${vaga.codigo}"></span> - <span th:text="${vaga.nome}"></span>
 		</h4>
 		</p>
 		<p>
@@ -59,10 +58,86 @@
 			<b>Cidade: </b> <span th:text="${vaga.cidade}"></span>
 		</p>
 		<p>
-			<b>Setor: </b><span th:text="${vaga.setor}"></span>
+			<label for="floatingSelect"><b>Setor:</b></label> <select disabled
+				class="form-select" id="floatingSelect"
+				aria-label="Floating label select example"
+				th:attr="value = ${vaga.setor}" name="setor" required>
+				<option th:selected="${vaga.setor} == '' ? true : false"
+					value="null">Selecione</option>
+				<option th:selected="${vaga.setor} == 1 ? true : false" value="1">Agricultura,Pecuária
+					e Veterinária</option>
+				<option th:selected="${vaga.setor} == 2 ? true : false" value="2">Alimentação</option>
+				<option th:selected="${vaga.setor} == 3 ? true : false" value="3">Bens
+					de Consumo</option>
+				<option th:selected="${vaga.setor} == 4 ? true : false" value="4">Comunicação
+					eEntretenimento</option>
+				<option th:selected="${vaga.setor} == 5 ? true : false" value="5">Construção
+					eHabitação</option>
+				<option th:selected="${vaga.setor} == 6 ? true : false" value="6">Consultoria
+					eAuditoria</option>
+				<option th:selected="${vaga.setor} == 7 ? true : false" value="7">Criatividade
+					e Design</option>
+				<option th:selected="${vaga.setor} == 8 ? true : false" value="8">Diversão,
+					Viagens eTurismo</option>
+				<option th:selected="${vaga.setor} == 9 ? true : false" value="9">Empresas
+					B</option>
+				<option th:selected="${vaga.setor} == 10 ? true : false" value="10">Estética,
+					Fitnesse Bem-estar</option>
+				<option th:selected="${vaga.setor} == 11 ? true : false" value="11">Finanças</option>
+				<option th:selected="${vaga.setor} == 12 ? true : false" value="12">Indústria</option>
+				<option th:selected="${vaga.setor} == 13 ? true : false" value="13">Jurídico</option>
+				<option th:selected="${vaga.setor} == 14 ? true : false" value="14">Logística</option>
+				<option th:selected="${vaga.setor} == 15 ? true : false" value="15">Marketing</option>
+				<option th:selected="${vaga.setor} == 16 ? true : false" value="16">Meio
+					Ambiente eFlorestas</option>
+				<option th:selected="${vaga.setor} == 17 ? true : false" value="17">Produtora</option>
+				<option th:selected="${vaga.setor} == 18 ? true : false" value="18">Recursos
+					Humanos</option>
+				<option th:selected="${vaga.setor} == 19 ? true : false" value="19">Saúde</option>
+				<option th:selected="${vaga.setor} == 20 ? true : false" value="20">Seguros</option>
+				<option th:selected="${vaga.setor} == 21 ? true : false" value="21">Serviços</option>
+				<option th:selected="${vaga.setor} == 22 ? true : false" value="22">Sociais
+					eEducação</option>
+				<option th:selected="${vaga.setor} == 23 ? true : false" value="23">Tech,
+					Geeks &amp;Nerds</option>
+				<option th:selected="${vaga.setor} == 24 ? true : false" value="24">Terceiro
+					Setor</option>
+				<option th:selected="${vaga.setor} == 25 ? true : false" value="25">Varejo
+					e Comércio</option>
+			</select>
 		</p>
 		<p>
-			<b>Cargo: </b><span th:text="${vaga.cargo}"></span>
+			<label for="floatingSelect"><b>Cargo: </b></label> <select disabled
+				class="form-select" id="floatingSelect"
+				aria-label="Floating label select example"
+				th:attr="value = ${vaga.cargo}" name="cargo" required>
+				<option th:selected="${vaga.cargo} == '' ? true : false"
+					value="null">Selecione</option>
+				<option
+					th:selected="${vaga.cargo} == 'Presidente_CEO_Socio' ? true : false"
+					value="Presidente_CEO_Socio">Presidente / CEO / Sócio</option>
+				<option
+					th:selected="${vaga.cargo} == 'Diretor(a)_VP' ? true : false"
+					value="Diretor(a)_VP">Diretor(a) / VP</option>
+				<option
+					th:selected="${vaga.cargo} == 'Gerente_Coordenador(a)' ? true : false"
+					value="Gerente_Coordenador(a)">Gerente / Coordenador(a)</option>
+				<option
+					th:selected="${vaga.cargo} == 'Business_Partner' ? true : false"
+					value="Business_Partner">Business Partner</option>
+				<option th:selected="${vaga.cargo} == 'Analista' ? true : false"
+					value="Analista">Analista</option>
+				<option th:selected="${vaga.cargo} == 'Producao' ? true : false"
+					value="Producao">Produção</option>
+				<option
+					th:selected="${vaga.cargo} == 'Estagiario(a)' ? true : false"
+					value="Estagiario(a)">Estagiário(a)</option>
+				<option th:selected="${vaga.cargo} == 'Estudante' ? true : false"
+					value="Estudante">Estudante</option>
+				<option
+					th:selected="${vaga.cargo} == 'Outros_Cargos' ? true : false"
+					value="Outros_Cargos">Outros Cargos</option>
+			</select>
 		</p>
 		<p>
 			<b>Contrato: </b><span th:text="${vaga.contrato}"></span>
